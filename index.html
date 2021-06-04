@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Rescuer</title>
+</head>
+
+<body>
+
+  <div class="game-over">GAME OVER
+    <a href="">Re-try</a>
+  </div>
+  <div class="life-box">
+    <div class="character"></div>
+    <div class="life-bar">
+      <div class="life"></div>
+    </div>
+  </div>
+
+  <div class="control-box">
+    <div class="controller w" onclick="up()"></div>
+    <div class="controller a" onclick="left()"></div>
+    <div class="controller s" onclick="down()"></div>
+    <div class="controller d" onclick="right()"></div>
+  </div>
+
+  <div class="game-board">
+    <div class="life-alert"></div>
+    <div class="player"></div>
+
+    <div class="path"></div>
+    <div class="path"></div>
+    <div class="path"></div>
+    <div class="path"></div>
+    <div class="grass"></div>
+    <div class="path">
+      <div class="prison"></div>
+      <div class="princess"></div>
+    </div>
+    <div class="path"></div>
+    <div class="path">
+      <div class="key"></div>
+    </div>
+    <div class="grass"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
