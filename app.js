@@ -42,10 +42,10 @@ function gameWin() {
     gameBoard.gameOver.style.display = "flex";
     gameBoard.mainBoard.style.filter = "grayscale(0)"
     gameBoard.lifeAlert.style.animationName = "";
-    gameBoard.player.style.backgroundImage = "url(\"../images/playerLeft.png\")";
+    gameBoard.player.style.backgroundImage = "url(\"./images/playerLeft.png\")";
     gameBoard.player.style.backgroundSize = "60%";
     gameBoard.player.style.backgroundPosition = "right";
-    gameBoard.princess.style.backgroundImage = "url(\"../images/princess2.png\")";
+    gameBoard.princess.style.backgroundImage = "url(\"./images/princess2.png\")";
     gameBoard.princess.style.backgroundSize = "60%";
     gameBoard.princess.style.backgroundPosition = "left";
   }
@@ -105,7 +105,7 @@ function left() {
     pLeft -= 32;
   }
 
-  gameBoard.player.style.backgroundImage = "url(\"../images/playerLeft.png\")"
+  gameBoard.player.style.backgroundImage = "url(\"./images/playerLeft.png\")"
   gameBoard.player.style.left = pLeft.toString() + "vmin";
   gameBoard.playerMessage.style.opacity = "0";
   gameWin()
@@ -129,7 +129,7 @@ function right() {
     gameBoard.key.style.display = "none"
   }
 
-  gameBoard.player.style.backgroundImage = "url(\"../images/player.png\")"
+  gameBoard.player.style.backgroundImage = "url(\"./images/player.png\")"
   gameBoard.player.style.left = pLeft.toString() + "vmin";
   gameBoard.playerMessage.style.opacity = "0";
   gameWin();
