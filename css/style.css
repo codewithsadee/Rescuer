@@ -205,11 +205,8 @@ body {
   padding: 1vmin;
   color: #ffffff;
   border: .2vmin solid #ffffff;
-  display: block;
-  opacity: 0;
-  z-index: 1;
-  -webkit-animation: player-message-none 4s;
-          animation: player-message-none 4s;
+  opacity: 1;
+  z-index: 3;
 }
 
 .game-board .player .player-message::after {
@@ -269,7 +266,7 @@ body {
   background: url("../images/key.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 40%;
+  background-size: 30%;
 }
 
 .game-board .grass {
@@ -294,38 +291,11 @@ body {
   }
 }
 
-@-webkit-keyframes player-message-none {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  21% {
-    opacity: 1;
-  }
-  99% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes player-message-none {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  21% {
-    opacity: 1;
-  }
-  99% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
+@media screen and (max-width: 414px) {
+  .control-box {
+    bottom: 3vmin;
+    right: 20vmin;
+    width: 60vmin;
+    height: 45vmin;
   }
 }

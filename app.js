@@ -140,7 +140,7 @@ function playerMessageFunc() {
   //! key not found message condition
   if (pTop == 0 && pLeft == 64 && gameBoard.key.style.display !== "none") {
     gameBoard.playerMessage.style.opacity = "1";
-    gameBoard.playerMessage.innerHTML = "Find the key!";
+    gameBoard.playerMessage.innerHTML = "I need a key...";
   } else {
     gameBoard.playerMessage.style.opacity = "0";
   }
