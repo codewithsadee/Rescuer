@@ -6,7 +6,9 @@ var gameBoard = {
   life: document.querySelector(".life"),
   lifeAlert: document.querySelector(".life-alert"),
   gameOver: document.querySelector(".game-over"),
-  mainBoard: document.querySelector(".game-board")
+  mainBoard: document.querySelector(".game-board"),
+  princess: document.querySelector(".princess"),
+  playerMessage: document.querySelector(".player-message")
 }
 
 //* declare dafault life value
@@ -14,7 +16,6 @@ var life = 100;
 
 //* declare default player position
 var pTop = 64, pLeft = 0;
-
 
 //* life function
 function Life() {
@@ -41,6 +42,12 @@ function gameWin() {
     gameBoard.gameOver.style.display = "flex";
     gameBoard.mainBoard.style.filter = "grayscale(0)"
     gameBoard.lifeAlert.style.animationName = "";
+    gameBoard.player.style.backgroundImage = "url(\"../images/playerLeft.png\")";
+    gameBoard.player.style.backgroundSize = "60%";
+    gameBoard.player.style.backgroundPosition = "right";
+    gameBoard.princess.style.backgroundImage = "url(\"../images/princess2.png\")";
+    gameBoard.princess.style.backgroundSize = "60%";
+    gameBoard.princess.style.backgroundPosition = "left";
   }
 }
 
@@ -57,6 +64,7 @@ function up() {
   }
 
   gameBoard.player.style.top = pTop.toString() + "vmin";
+  gameBoard.playerMessage.style.opacity = "0";
   gameWin()
 }
 
@@ -78,11 +86,12 @@ function down() {
   //! condition for UNLOCK PRISON
   if (gameBoard.key.style.display == "none" && pTop == 0 && pLeft == 64) {
     pTop += 32;
-    gameBoard.prison.style.display = "none"
+    gameBoard.prison.style.display = "none";
   }
+  playerMessageFunc();
 
   gameBoard.player.style.top = pTop.toString() + "vmin";
-  gameWin()
+  gameWin();
 }
 
 function left() {
@@ -96,7 +105,9 @@ function left() {
     pLeft -= 32;
   }
 
+  gameBoard.player.style.backgroundImage = "url(\"../images/playerLeft.png\")"
   gameBoard.player.style.left = pLeft.toString() + "vmin";
+  gameBoard.playerMessage.style.opacity = "0";
   gameWin()
 }
 
@@ -118,7 +129,19 @@ function right() {
     gameBoard.key.style.display = "none"
   }
 
+  gameBoard.player.style.backgroundImage = "url(\"../images/player.png\")"
   gameBoard.player.style.left = pLeft.toString() + "vmin";
-  gameWin()
+  gameBoard.playerMessage.style.opacity = "0";
+  gameWin();
 }
 
+function playerMessageFunc() {
+
+  //! key not found message condition
+  if (pTop == 0 && pLeft == 64 && gameBoard.key.style.display !== "none") {
+    gameBoard.playerMessage.style.opacity = "1";
+    gameBoard.playerMessage.innerHTML = "Find the key!";
+  } else {
+    gameBoard.playerMessage.style.opacity = "0";
+  }
+}

@@ -46,14 +46,14 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-size: 5em;
+  font-size: 10vmin;
   color: #ff0000;
   text-shadow: 10px 0 0 #000000;
   z-index: 1000;
 }
 
 .game-over a {
-  font-size: 50px !important;
+  font-size: 6vmin !important;
   color: #19ff19 !important;
   margin: 40px 0;
 }
@@ -187,11 +187,50 @@ body {
   height: 33vmin;
   top: 64vmin;
   left: 0vmin;
-  background: url("../images/player.png");
+  background-image: url("../images/player.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80%;
   z-index: 1;
+}
+
+.game-board .player .player-message {
+  position: absolute;
+  bottom: 85%;
+  left: 10%;
+  width: 80%;
+  background: #000000;
+  font-size: 1.5vmin;
+  line-height: 2vmin;
+  padding: 1vmin;
+  color: #ffffff;
+  border: .2vmin solid #ffffff;
+  display: block;
+  opacity: 0;
+  z-index: 1;
+  -webkit-animation: player-message-none 4s;
+          animation: player-message-none 4s;
+}
+
+.game-board .player .player-message::after {
+  content: "";
+  position: absolute;
+  bottom: -2.4vmin;
+  left: 20%;
+  width: 2vmin;
+  height: 2vmin;
+  border: .2vmin solid;
+  border-top-color: #000000;
+  border-bottom-left-radius: 100px;
+  background: #000000;
+  z-index: 3;
+}
+
+.game-board .path2 {
+  background: url("../images/road_2.png") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
 .game-board .path {
@@ -252,5 +291,41 @@ body {
   50% {
     -webkit-box-shadow: inset 0 0 50px #ff0000;
             box-shadow: inset 0 0 50px #ff0000;
+  }
+}
+
+@-webkit-keyframes player-message-none {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  21% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes player-message-none {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  21% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
