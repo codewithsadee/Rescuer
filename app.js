@@ -11,7 +11,7 @@ var gameBoard = {
   playerMessage: document.querySelector(".player-message")
 }
 
-//* declare dafault life value
+//* declare default life value
 var life = 100;
 
 //* declare default player position
