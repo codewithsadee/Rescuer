@@ -31,6 +31,9 @@ function Life() {
   if (life <= 0) {
     gameBoard.gameOver.style.display = "flex";
     gameBoard.mainBoard.style.filter = "grayscale(1)"
+	//game over sound//
+	var gameOverSound = new Audio("./sounds/over.mp3");
+	gameOverSound.play();
   }
 }
 
@@ -48,12 +51,16 @@ function gameWin() {
     gameBoard.princess.style.backgroundImage = "url(\"./images/princess2.png\")";
     gameBoard.princess.style.backgroundSize = "60%";
     gameBoard.princess.style.backgroundPosition = "left";
+	// game win sounds //
+	var winSound = new Audio("./sounds/win.mp3");
+	winSound.play().repeat();
   }
 }
 
 //* controller function
 function up() {
-  Life()
+  Life();
+  stepSounds();
   //! condition for --> W
   if (pTop == 64 && pLeft == 32) {
     pTop = 64;
@@ -70,6 +77,7 @@ function up() {
 
 function down() {
   Life()
+  stepSounds();
   //! condition for --> S
   if (pTop == 32 && pLeft == 64) {
     pTop = 32;
@@ -96,6 +104,7 @@ function down() {
 
 function left() {
   Life()
+  stepSounds();
   //! condition for --> A
   if (pTop == 32 && pLeft == 64) {
     pLeft = 64;
@@ -113,6 +122,7 @@ function left() {
 
 function right() {
   Life()
+  stepSounds();
   //! condition for --> D
   if (pTop == 64 && pLeft == 32) {
     pLeft = 32;
@@ -126,7 +136,10 @@ function right() {
 
   //! condition for KEY COLLECT
   if (pTop == 64 && pLeft == 32) {
-    gameBoard.key.style.display = "none"
+    gameBoard.key.style.display = "none"	
+    // keyCollect sound//
+    var keyCollectSound = new Audio("./sounds/collect.mp3");
+	keyCollectSound.play();
   }
 
   gameBoard.player.style.backgroundImage = "url(\"./images/player.png\")"
@@ -144,4 +157,10 @@ function playerMessageFunc() {
   } else {
     gameBoard.playerMessage.style.opacity = "0";
   }
+}
+
+// function for step sounds//
+function stepSounds(){
+	var stepSound = new Audio("./sounds/step.mp3");
+	stepSound.play();
 }
